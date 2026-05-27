@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight | Real-Time Video Anomaly Detection</title>
+    <meta
+      name="description"
+      content="Hearthlight is a real-time anomaly-detection platform for CCTV, multi-source monitoring, incident workflows, and operator-controlled AI pipelines."
+    />
+    <link rel="icon" type="image/png" href="./assets/hearthlight.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Hearthlight home">
+        <img src="./assets/hearthlight.png" alt="Hearthlight logo" />
+        <span>Hearthlight</span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#zoos">Three Zoos</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#deploy">Deploy</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Operator-first video intelligence</p>
+          <h1>See unusual activity before it becomes an incident.</h1>
+          <p class="lede">
+            Hearthlight analyzes CCTV, webcams, and uploaded video in real time, then turns
+            detections, identity resolution, and anomaly signals into operator-ready incident
+            workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#architecture">Explore the runtime</a>
+            <a class="button button-secondary" href="#deploy">View deployment path</a>
+          </div>
+          <ul class="signal-list" aria-label="Product highlights">
+            <li>Real-time detection, tracking, and ReID</li>
+            <li>FastAPI control plane with React dashboard</li>
+            <li>Plugin-backed models, triggers, and connectors</li>
+          </ul>
+        </div>
+
+        <div class="hero-panel reveal reveal-delay">
+          <div class="panel-shell">
+            <div class="panel-header">
+              <span class="panel-pill">Runtime Status</span>
+              <span class="panel-dot">Live</span>
+            </div>
+            <div class="panel-grid">
+              <article>
+                <span class="label">Inputs</span>
+                <strong>Cameras, web cams, uploads</strong>
+                <p>Mixed source ingest with source-level model overrides.</p>
+              </article>
+              <article>
+                <span class="label">Pipeline</span>
+                <strong>Detect -> Track -> ReID -> Anomaly</strong>
+                <p>Separate services coordinated through RabbitMQ and Postgres.</p>
+              </article>
+              <article>
+                <span class="label">Control Plane</span>
+                <strong>Rules, bindings, prompts, telemetry</strong>
+                <p>Operators configure runs before the host shell starts containers.</p>
+              </article>
+              <article>
+                <span class="label">Outputs</span>
+                <strong>Incidents, feeds, alerts, entities</strong>
+                <p>Normalized records for operations and downstream actions.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Core capabilities</p>
+          <h2>Built for live operations, not offline demos.</h2>
+        </div>
+        <div class="card-grid card-grid-three">
+          <article class="feature-card reveal">
+            <h3>Multi-source monitoring</h3>
+            <p>
+              Run RTSP and HTTP cameras, local webcams, or uploaded video through the same
+              control-plane flow with per-source bindings and frame-throttling controls.
+            </p>
+          </article>
+          <article class="feature-card reveal">
+            <h3>Operator-managed AI</h3>
+            <p>
+              Adjust default model bindings, source overrides, anomaly prompt settings, and alert
+              rules without editing registry files directly from the browser.
+            </p>
+          </article>
+          <article class="feature-card reveal">
+            <h3>Incident-ready outputs</h3>
+            <p>
+              Hearthlight persists runs, incidents, entities, recordings, anomaly events, and
+              resource telemetry so monitoring and follow-up happen in one system.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="zoos" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The Three Zoos</p>
+          <h2>One product, three operator-facing catalogs.</h2>
+          <p>
+            Hearthlight separates model choice, event choice, and action choice so plugins can
+            extend the system without turning the control plane into a tangle.
+          </p>
+        </div>
+        <div class="zoo-grid">
+          <article class="zoo-card reveal">
+            <span class="zoo-index">01</span>
+            <h3>Model Zoo</h3>
+            <p>
+              Plugin-provided model registrations and mounted-model state that drive model
+              bindings, inventory views, and source-specific runtime selection.
+            </p>
+          </article>
+          <article class="zoo-card reveal">
+            <span class="zoo-index">02</span>
+            <h3>Trigger Zoo</h3>
+            <p>
+              Trigger catalog entries that define which runtime events can become rules, alerts,
+              and future trigger-family expansions.
+            </p>
+          </article>
+          <article class="zoo-card reveal">
+            <span class="zoo-index">03</span>
+            <h3>Connector Zoo</h3>
+            <p>
+              Connector catalog entries that define where actions go next, from notification paths
+              to external systems and installable integrations.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section section-contrast">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Runtime architecture</p>
+          <h2>A modular pipeline with a real control plane behind it.</h2>
+        </div>
+        <div class="pipeline reveal">
+          <article>
+            <span>1</span>
+            <h3>Ingestor</h3>
+            <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>ReID</h3>
+            <p>Resolves persistent identities for people and bags across camera-local tracks.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Anomaly</h3>
+            <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>Association</h3>
+            <p>Infers ownership, generates incidents, and keeps downstream resolution coherent.</p>
+          </article>
+        </div>
+        <div class="architecture-notes">
+          <div class="note-card reveal">
+            <h3>FastAPI + React control plane</h3>
+            <p>
+              Operators save sources, model bindings, anomaly prompts, and alert rules through the
+              web app before a `/start` command is published into the runtime.
+            </p>
+          </div>
+          <div class="note-card reveal">
+            <h3>RabbitMQ + Postgres backbone</h3>
+            <p>
+              RabbitMQ coordinates long-running services while Postgres stores both runtime
+              entities and control-plane state across `runtime` and `control` schemas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="deploy" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Deployment path</p>
+          <h2>Ready for GitHub Pages now, custom domain later.</h2>
+          <p>
+            This site is structured as a static build so it can publish cleanly to GitHub Pages
+            today and move to a verified custom domain when you are ready.
+          </p>
+        </div>
+        <div class="deploy-grid">
+          <article class="deploy-card reveal">
+            <h3>GitHub Pages</h3>
+            <p>
+              The repository deploys through a Pages workflow, which makes the default project URL
+              available at <code>lauretta-io.github.io/hearthlight_web</code>.
+            </p>
+          </article>
+          <article class="deploy-card reveal">
+            <h3>Custom domain support</h3>
+            <p>
+              When a domain is chosen, GitHub Pages can map this project site to that domain
+              without changing the site structure.
+            </p>
+          </article>
+          <article class="deploy-card reveal">
+            <h3>Product state</h3>
+            <p>
+              Current release alignment is <code>0.8.0</code>, with Docker image selection,
+              operator settings, and plugin-backed runtime catalogs already reflected in the repo.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Hearthlight website scaffold for GitHub Pages.</p>
+      <p>&copy; <span id="year"></span> Hearthlight</p>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
