@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight Trigger Library</title>
+    <meta
+      name="description"
+      content="Understand how Hearthlight turns detector and anomaly events into alert rules and downstream actions through the Trigger Library."
+    />
+    <link rel="icon" type="image/png" href="../assets/hearthlight.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="trigger-library">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="../" aria-label="Hearthlight home">
+          <img src="../assets/hearthlight.png" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="../" data-route="home">Home</a>
+          <a href="../#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="../#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="../#architecture" data-section-link="architecture">Architecture</a>
+          <a href="../quick-start/" data-route="quick-start">Get Started</a>
+          <a href="../#contribute" data-section-link="contribute">Contribute</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell detail-hero">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Trigger Library</p>
+          <h1>Define when the system should decide that something matters.</h1>
+          <p>
+            The Trigger Zoo describes the event types that the Rules page can convert into alerts
+            and downstream actions. It sits between raw model output and the operators or systems
+            that need to respond.
+          </p>
+        </div>
+
+        <div class="detail-nav reveal" aria-label="Library pages">
+          <a href="../quick-start/" data-page="quick-start">Quick Start</a>
+          <a href="../model-library/" data-page="model-library">Model Library</a>
+          <a href="./" data-page="trigger-library">Trigger Library</a>
+          <a href="../connector-library/" data-page="connector-library">Connector Library</a>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Trigger Families</p>
+          <h2>Rules are driven by runtime events, not by hard-coded UI branches.</h2>
+          <p>
+            The current docs describe detector-driven and anomaly-driven triggers as the primary
+            examples, with room for more trigger families to appear after restart.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-three">
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Detector</span>
+            <h3>Object-level trigger inputs</h3>
+            <p>
+              Detector trigger choices come from the effective detector model for that source, with
+              the runtime mapping raw detector classes into stable live trigger IDs such as
+              `PERSON` and `BAG`.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Anomaly</span>
+            <h3>Behavior and object alerts</h3>
+            <p>
+              Anomaly object and activity choices come from the saved anomaly prompt settings, and
+              each anomaly rule now owns its own `1-10` cutoff.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Rules</span>
+            <h3>Stable operator-facing selections</h3>
+            <p>
+              The web UI presents saved rule choices as stable operator-facing options instead of
+              making the browser parse registry files directly.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="detail-grid">
+          <article class="callout reveal">
+            <p class="eyebrow">Why it matters</p>
+            <h2>Triggers decide when raw vision becomes an operational event.</h2>
+            <p>
+              The Trigger Zoo controls when the system decides something important happened. It is
+              deliberately separate from model selection and connector delivery so each concern can
+              evolve independently.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Plugin-backed</span>
+            <h3>New trigger families can appear after restart</h3>
+            <p>
+              The docs explicitly call out that Trigger Zoo entries are plugin-backed, which keeps
+              the UI contract stable even as the runtime grows new event types.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Current Semantics</p>
+          <h2>Normalized trigger IDs keep rule behavior readable.</h2>
+          <p>
+            For the default COCO-trained YOLOX detector family, raw detector classes are broader
+            than the live trigger IDs the runtime emits. That is intentional.
+          </p>
+        </div>
+
+        <div class="detail-grid">
+          <article class="support-card reveal">
+            <h3>Detector-side normalization</h3>
+            <ul class="summary-list">
+              <li>`person` maps to `PERSON`</li>
+              <li>`backpack`, `handbag`, and `suitcase` map to `BAG`</li>
+              <li>Rule surfaces use the normalized IDs that the runtime actually emits</li>
+            </ul>
+          </article>
+          <article class="support-card reveal">
+            <h3>Saved alert-rule inputs</h3>
+            <p>
+              Detector choices come from the active model metadata for that source, while anomaly
+              choices come from the saved prompt payload rather than from the browser reading YAML.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="resource-grid">
+          <article class="support-card reveal">
+            <h3>Repository Guide</h3>
+            <p>Read the runtime’s catalog explanation and the separation between the three zoos.</p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight/blob/main/docs/repository.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the guide
+            </a>
+          </article>
+          <article class="support-card reveal">
+            <h3>Initialization Guide</h3>
+            <p>Review how rules, prompts, and detector class options appear in the control plane.</p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the guide
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="../" aria-label="Hearthlight home">
+            <img src="../assets/hearthlight.png" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="../quick-start/">Quick Start</a>
+            <a href="../model-library/">Model Library</a>
+            <a href="./">Trigger Library</a>
+            <a href="../connector-library/">Connector Library</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/repository.md" target="_blank" rel="noreferrer">Repository Guide</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md" target="_blank" rel="noreferrer">Initialization Guide</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
+  </body>
+</html>

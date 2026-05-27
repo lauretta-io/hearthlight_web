@@ -3,242 +3,361 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hearthlight | Real-Time Video Anomaly Detection</title>
+    <title>Hearthlight | AI That Runs the Real World</title>
     <meta
       name="description"
-      content="Hearthlight is a real-time anomaly-detection platform for CCTV, multi-source monitoring, incident workflows, and operator-controlled AI pipelines."
+      content="Hearthlight is local-first computer vision automation. Connect cameras, models, triggers, and actions to turn video into structured events and workflows."
     />
     <link rel="icon" type="image/png" href="./assets/hearthlight.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./main.js" defer></script>
   </head>
-  <body>
-    <div class="page-glow page-glow-left"></div>
-    <div class="page-glow page-glow-right"></div>
+  <body data-page="home">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
 
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="Hearthlight home">
-        <img src="./assets/hearthlight.png" alt="Hearthlight logo" />
-        <span>Hearthlight</span>
-      </a>
-      <nav class="topnav" aria-label="Primary">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#zoos">Three Zoos</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#deploy">Deploy</a>
-      </nav>
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="./" aria-label="Hearthlight home">
+          <img src="./assets/hearthlight.png" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="./" data-route="home">Home</a>
+          <a href="./#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="./#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="./#architecture" data-section-link="architecture">Architecture</a>
+          <a href="./quick-start/" data-route="quick-start">Get Started</a>
+          <a href="./#contribute" data-section-link="contribute">Contribute</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
-      <section class="hero section">
+      <section class="hero section shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Operator-first video intelligence</p>
-          <h1>See unusual activity before it becomes an incident.</h1>
+          <p class="eyebrow">Local-first computer vision automation</p>
+          <h1>AI that runs the real world.</h1>
           <p class="lede">
-            Hearthlight analyzes CCTV, webcams, and uploaded video in real time, then turns
-            detections, identity resolution, and anomaly signals into operator-ready incident
-            workflows.
+            Open-source computer vision automation that runs locally. Connect cameras, local
+            models, and triggers to turn video into structured events and workflows.
           </p>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="#architecture">Explore the runtime</a>
-            <a class="button button-secondary" href="#deploy">View deployment path</a>
+            <a class="button button-primary" href="./quick-start/">Get Started</a>
+            <a class="button button-secondary" href="./#architecture">View Architecture</a>
           </div>
-          <ul class="signal-list" aria-label="Product highlights">
-            <li>Real-time detection, tracking, and ReID</li>
-            <li>FastAPI control plane with React dashboard</li>
-            <li>Plugin-backed models, triggers, and connectors</li>
+
+          <ul class="pill-list" aria-label="Product signals">
+            <li>Runs locally</li>
+            <li>Open-source runtime</li>
+            <li>Plugin-backed catalogs</li>
           </ul>
         </div>
 
-        <div class="hero-panel reveal reveal-delay">
-          <div class="panel-shell">
-            <div class="panel-header">
-              <span class="panel-pill">Runtime Status</span>
-              <span class="panel-dot">Live</span>
-            </div>
-            <div class="panel-grid">
-              <article>
-                <span class="label">Inputs</span>
-                <strong>Cameras, web cams, uploads</strong>
-                <p>Mixed source ingest with source-level model overrides.</p>
-              </article>
-              <article>
-                <span class="label">Pipeline</span>
-                <strong>Detect -> Track -> ReID -> Anomaly</strong>
-                <p>Separate services coordinated through RabbitMQ and Postgres.</p>
-              </article>
-              <article>
-                <span class="label">Control Plane</span>
-                <strong>Rules, bindings, prompts, telemetry</strong>
-                <p>Operators configure runs before the host shell starts containers.</p>
-              </article>
-              <article>
-                <span class="label">Outputs</span>
-                <strong>Incidents, feeds, alerts, entities</strong>
-                <p>Normalized records for operations and downstream actions.</p>
-              </article>
-            </div>
+        <aside class="spotlight-panel reveal reveal-delay" aria-label="Runtime overview">
+          <div class="panel-header">
+            <span class="panel-tag">Runtime status</span>
+            <span class="live-chip">Live</span>
           </div>
-        </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span class="metric-label">Inputs</span>
+              <h2>Cameras, web cams, uploaded video</h2>
+              <p>Mixed-source ingest with source-level model overrides and frame controls.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Pipeline</span>
+              <h2>Detect, track, resolve, escalate</h2>
+              <p>Separate services coordinate detections, ReID, anomaly analysis, and incidents.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Control plane</span>
+              <h2>Rules, prompts, bindings, telemetry</h2>
+              <p>Operators save the run plan before the host shell starts the stack.</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Outputs</span>
+              <h2>Incidents, entities, recordings, alerts</h2>
+              <p>Structured runtime records stay queryable instead of disappearing into logs.</p>
+            </article>
+          </div>
+        </aside>
       </section>
 
-      <section id="capabilities" class="section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Core capabilities</p>
-          <h2>Built for live operations, not offline demos.</h2>
+      <section id="capabilities" class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Built for live operations, not a demo reel.</h2>
+          <p>
+            Hearthlight gives operators a local control layer for cameras and AI models, with the
+            runtime and the web control plane staying clearly separated.
+          </p>
         </div>
-        <div class="card-grid card-grid-three">
+
+        <div class="card-grid card-grid-four">
           <article class="feature-card reveal">
+            <span class="feature-kicker">01</span>
             <h3>Multi-source monitoring</h3>
             <p>
-              Run RTSP and HTTP cameras, local webcams, or uploaded video through the same
-              control-plane flow with per-source bindings and frame-throttling controls.
+              Run RTSP cameras, HTTP feeds, local webcams, and uploaded video through one
+              operator workflow.
             </p>
           </article>
           <article class="feature-card reveal">
+            <span class="feature-kicker">02</span>
             <h3>Operator-managed AI</h3>
             <p>
-              Adjust default model bindings, source overrides, anomaly prompt settings, and alert
-              rules without editing registry files directly from the browser.
+              Save default model bindings, source overrides, anomaly prompts, and alert rules
+              without editing raw YAML in the browser.
             </p>
           </article>
           <article class="feature-card reveal">
+            <span class="feature-kicker">03</span>
             <h3>Incident-ready outputs</h3>
             <p>
-              Hearthlight persists runs, incidents, entities, recordings, anomaly events, and
-              resource telemetry so monitoring and follow-up happen in one system.
+              Persist runs, incidents, entities, anomaly events, and recordings so follow-up work
+              starts from structured evidence.
+            </p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-kicker">04</span>
+            <h3>Extensible plugin framework</h3>
+            <p>
+              Extend models, triggers, connectors, and optional integrations through restart-loaded
+              plugin catalogs.
             </p>
           </article>
         </div>
       </section>
 
-      <section id="zoos" class="section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">The Three Zoos</p>
+      <section id="zoos" class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Three Zoos</p>
           <h2>One product, three operator-facing catalogs.</h2>
           <p>
-            Hearthlight separates model choice, event choice, and action choice so plugins can
-            extend the system without turning the control plane into a tangle.
+            Hearthlight uses the “zoo” idea to keep interchangeable parts understandable. Models
+            control what the runtime can see, triggers control when it should react, and connectors
+            control where those actions go next.
           </p>
         </div>
-        <div class="zoo-grid">
+
+        <div class="card-grid card-grid-three">
           <article class="zoo-card reveal">
-            <span class="zoo-index">01</span>
-            <h3>Model Zoo</h3>
+            <span class="badge-number">01</span>
+            <h3>Model Library</h3>
             <p>
-              Plugin-provided model registrations and mounted-model state that drive model
-              bindings, inventory views, and source-specific runtime selection.
+              Choose built-in detection, tracking, ReID, heuristic, and anomaly models, or mount
+              new ones into the shared inventory.
             </p>
+            <a class="link-arrow" href="./model-library/">Explore the Model Library</a>
           </article>
           <article class="zoo-card reveal">
-            <span class="zoo-index">02</span>
-            <h3>Trigger Zoo</h3>
+            <span class="badge-number">02</span>
+            <h3>Trigger Library</h3>
             <p>
-              Trigger catalog entries that define which runtime events can become rules, alerts,
-              and future trigger-family expansions.
+              Define which runtime events can become rules, alerts, and downstream actions without
+              locking the UI to one trigger family forever.
             </p>
+            <a class="link-arrow" href="./trigger-library/">Explore the Trigger Library</a>
           </article>
           <article class="zoo-card reveal">
-            <span class="zoo-index">03</span>
-            <h3>Connector Zoo</h3>
+            <span class="badge-number">03</span>
+            <h3>Connector Library</h3>
             <p>
-              Connector catalog entries that define where actions go next, from notification paths
-              to external systems and installable integrations.
+              Send structured events to Telegram, Apple Messages, optional device integrations, and
+              future outbound systems.
             </p>
+            <a class="link-arrow" href="./connector-library/">Explore the Connector Library</a>
           </article>
         </div>
       </section>
 
-      <section id="architecture" class="section section-contrast">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Runtime architecture</p>
-          <h2>A modular pipeline with a real control plane behind it.</h2>
-        </div>
-        <div class="pipeline reveal">
-          <article>
-            <span>1</span>
-            <h3>Ingestor</h3>
-            <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
-          </article>
-          <article>
-            <span>2</span>
-            <h3>ReID</h3>
-            <p>Resolves persistent identities for people and bags across camera-local tracks.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h3>Anomaly</h3>
-            <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
-          </article>
-          <article>
-            <span>4</span>
-            <h3>Association</h3>
-            <p>Infers ownership, generates incidents, and keeps downstream resolution coherent.</p>
-          </article>
-        </div>
-        <div class="architecture-notes">
-          <div class="note-card reveal">
-            <h3>FastAPI + React control plane</h3>
+      <section id="architecture" class="section section-dark">
+        <div class="shell">
+          <div class="section-intro reveal">
+            <p class="eyebrow">Architecture</p>
+            <h2>A modular pipeline with a simple control plane.</h2>
             <p>
-              Operators save sources, model bindings, anomaly prompts, and alert rules through the
-              web app before a `/start` command is published into the runtime.
+              The runtime stays split into focused services while the web app handles operator
+              state, launch planning, and run visibility.
             </p>
           </div>
-          <div class="note-card reveal">
-            <h3>RabbitMQ + Postgres backbone</h3>
-            <p>
-              RabbitMQ coordinates long-running services while Postgres stores both runtime
-              entities and control-plane state across `runtime` and `control` schemas.
-            </p>
+
+          <div class="pipeline-grid reveal">
+            <article class="pipeline-card">
+              <span>1</span>
+              <h3>Ingestor</h3>
+              <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
+            </article>
+            <article class="pipeline-card">
+              <span>2</span>
+              <h3>ReID</h3>
+              <p>Turns camera-local tracks into persistent identities for people and bags.</p>
+            </article>
+            <article class="pipeline-card">
+              <span>3</span>
+              <h3>Anomaly</h3>
+              <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
+            </article>
+            <article class="pipeline-card">
+              <span>4</span>
+              <h3>Association</h3>
+              <p>Infers ownership, generates incidents, and keeps resolution state coherent.</p>
+            </article>
+          </div>
+
+          <div class="split-panels">
+            <article class="dark-panel reveal">
+              <h3>Control-plane technologies</h3>
+              <ul class="stack-list">
+                <li>FastAPI API surface for run control and operations data</li>
+                <li>React dashboard for source setup, bindings, prompts, and rules</li>
+                <li>RabbitMQ for long-running service coordination</li>
+                <li>Postgres for runtime and control schemas</li>
+              </ul>
+            </article>
+            <article class="dark-panel reveal">
+              <h3>Why it is split this way</h3>
+              <p>
+                Startup choices such as CPU vs CUDA and template selection stay on the host-side
+                launcher, while operator-managed state lives in the control plane and survives
+                restarts.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="deploy" class="section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Deployment path</p>
-          <h2>Ready for GitHub Pages now, custom domain later.</h2>
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Get Started</p>
+          <h2>From checkout to dashboard in a few explicit steps.</h2>
           <p>
-            This site is structured as a static build so it can publish cleanly to GitHub Pages
-            today and move to a verified custom domain when you are ready.
+            The first-run path is intentionally command-driven: onboard the workspace, inspect the
+            inventory, start the stack, then open the dashboard.
           </p>
         </div>
-        <div class="deploy-grid">
-          <article class="deploy-card reveal">
-            <h3>GitHub Pages</h3>
+
+        <div class="quickstart-preview reveal">
+          <div class="terminal-card">
+            <div class="terminal-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <pre><code>pip install hearthlight
+hearthlight onboard
+hearthlight list-models
+hearthlight start --interactive
+hearthlight dashboard</code></pre>
+          </div>
+          <div class="preview-copy">
             <p>
-              The repository deploys through a Pages workflow, which makes the default project URL
-              available at <code>lauretta-io.github.io/hearthlight_web</code>.
+              Use `hearthlight onboard` to prepare the local workspace, `hearthlight list-models`
+              to inspect the current inventory, `hearthlight start` to launch the stack, and
+              `hearthlight dashboard` to open the UI after the services are ready.
             </p>
-          </article>
-          <article class="deploy-card reveal">
-            <h3>Custom domain support</h3>
+            <a class="button button-secondary" href="./quick-start/">Read the Quick Start</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contribute" class="section shell">
+        <div class="contribute-panel reveal">
+          <div>
+            <p class="eyebrow">Contribute</p>
+            <h2>Help extend the runtime, the catalogs, and the security posture.</h2>
             <p>
-              When a domain is chosen, GitHub Pages can map this project site to that domain
-              without changing the site structure.
+              Hearthlight is open-source infrastructure. Contributions are welcome across the core
+              runtime, the model ecosystem, trigger definitions, connector integrations, and the
+              hardening work that makes local deployment trustworthy.
             </p>
-          </article>
-          <article class="deploy-card reveal">
-            <h3>Product state</h3>
-            <p>
-              Current release alignment is <code>0.8.0</code>, with Docker image selection,
-              operator settings, and plugin-backed runtime catalogs already reflected in the repo.
-            </p>
-          </article>
+          </div>
+          <div class="repo-list" aria-label="Project repositories">
+            <a
+              class="repo-card"
+              href="https://github.com/lauretta-io/hearthlight"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Hearthlight Runtime</strong>
+              <span>github.com/lauretta-io/hearthlight</span>
+            </a>
+            <a
+              class="repo-card"
+              href="https://github.com/lauretta-io/hearthlight_model_zoo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Hearthlight Model Zoo</strong>
+              <span>github.com/lauretta-io/hearthlight_model_zoo</span>
+            </a>
+            <a
+              class="repo-card"
+              href="https://github.com/lauretta-io/hearthlight/blob/main/docs/security.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Security Notes</strong>
+              <span>Read the current hardening and deployment notes</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <p>Hearthlight website scaffold for GitHub Pages.</p>
-      <p>&copy; <span id="year"></span> Hearthlight</p>
-    </footer>
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="./" aria-label="Hearthlight home">
+            <img src="./assets/hearthlight.png" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
 
-    <script src="./main.js"></script>
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="./quick-start/">Quick Start</a>
+            <a href="./model-library/">Model Library</a>
+            <a href="./trigger-library/">Trigger Library</a>
+            <a href="./connector-library/">Connector Library</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md" target="_blank" rel="noreferrer">Initialization Guide</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
   </body>
 </html>

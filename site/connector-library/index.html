@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight Connector Library</title>
+    <meta
+      name="description"
+      content="Understand how Hearthlight routes alert actions to Telegram, Apple Messages, optional connector plugins, and future downstream systems."
+    />
+    <link rel="icon" type="image/png" href="../assets/hearthlight.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="connector-library">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="../" aria-label="Hearthlight home">
+          <img src="../assets/hearthlight.png" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="../" data-route="home">Home</a>
+          <a href="../#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="../#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="../#architecture" data-section-link="architecture">Architecture</a>
+          <a href="../quick-start/" data-route="quick-start">Get Started</a>
+          <a href="../#contribute" data-section-link="contribute">Contribute</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell detail-hero">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Connector Library</p>
+          <h1>Route operational events to people, systems, and optional device actions.</h1>
+          <p>
+            The Connector Zoo describes where trigger actions go next. It separates connector
+            availability from connector configuration so the runtime can expose integrations without
+            forcing every workspace to enable all of them.
+          </p>
+        </div>
+
+        <div class="detail-nav reveal" aria-label="Library pages">
+          <a href="../quick-start/" data-page="quick-start">Quick Start</a>
+          <a href="../model-library/" data-page="model-library">Model Library</a>
+          <a href="../trigger-library/" data-page="trigger-library">Trigger Library</a>
+          <a href="./" data-page="connector-library">Connector Library</a>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Current Scope</p>
+          <h2>Keep the default core set small, then pull in optional integrations.</h2>
+          <p>
+            The runtime docs describe Telegram, Apple Messages, webhooks, and optional plugins like
+            Govee Light Connection as examples of Connector Zoo coverage.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-four">
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Built-in</span>
+            <h3>Telegram</h3>
+            <p>Send trigger notifications to Telegram subscriptions configured in the workspace.</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Built-in</span>
+            <h3>Apple Messages</h3>
+            <p>Deliver trigger notifications through the Apple Messages integration path.</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Outbound</span>
+            <h3>Webhooks and APIs</h3>
+            <p>Use structured downstream delivery paths instead of coupling actions to the runtime.</p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Optional</span>
+            <h3>Govee Light Connection</h3>
+            <p>Expose device-control actions through an optional connector plugin rather than the core default set.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="detail-grid">
+          <article class="callout reveal">
+            <p class="eyebrow">Connector semantics</p>
+            <h2>Availability and configuration are not the same thing.</h2>
+            <p>
+              A connector entry can exist in the zoo without being fully configured in the
+              workspace. That separation keeps the catalog understandable while preserving local
+              control.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Plugin-backed</span>
+            <h3>Optional integrations stay optional</h3>
+            <p>
+              The Govee plugin is a good example: it adds a connector entry without forcing every
+              installation to treat light control as a core capability.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Example Connector</p>
+          <h2>Govee shows how the library can grow without bloating the default runtime.</h2>
+          <p>
+            The current Govee v1 scope is limited and concrete: validate the API key, discover
+            devices, read optional state, and send light-control actions such as power, brightness,
+            color, temperature, and scenes.
+          </p>
+        </div>
+
+        <div class="detail-grid">
+          <article class="support-card reveal">
+            <h3>What stays small by default</h3>
+            <ul class="summary-list">
+              <li>Core connector coverage is intentionally narrow</li>
+              <li>Optional plugin connectors can be surfaced after restart</li>
+              <li>Catalog presence does not imply the connector is configured yet</li>
+            </ul>
+          </article>
+          <article class="support-card reveal">
+            <h3>What a connector ultimately does</h3>
+            <p>
+              The Connector Zoo controls where events are sent after the runtime decides an alert or
+              action should fire.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="resource-grid">
+          <article class="support-card reveal">
+            <h3>Connector Zoo in the runtime</h3>
+            <p>Review the current repository wording for connector catalog behavior and optional plugins.</p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight/blob/main/README.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the README
+            </a>
+          </article>
+          <article class="support-card reveal">
+            <h3>Contribute integrations</h3>
+            <p>
+              Connector contributions can target plugin bundles, security hardening, or the
+              connector-catalog flows that expose installable integrations cleanly.
+            </p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open the runtime repository
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="../" aria-label="Hearthlight home">
+            <img src="../assets/hearthlight.png" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="../quick-start/">Quick Start</a>
+            <a href="../model-library/">Model Library</a>
+            <a href="../trigger-library/">Trigger Library</a>
+            <a href="./">Connector Library</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/security.md" target="_blank" rel="noreferrer">Security Notes</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/repository.md" target="_blank" rel="noreferrer">Repository Guide</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
+  </body>
+</html>

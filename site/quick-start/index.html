@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight Quick Start</title>
+    <meta
+      name="description"
+      content="Start Hearthlight with the current CLI: onboard the workspace, inspect models, launch the stack, and open the dashboard."
+    />
+    <link rel="icon" type="image/png" href="../assets/hearthlight.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="quick-start">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="../" aria-label="Hearthlight home">
+          <img src="../assets/hearthlight.png" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="../" data-route="home">Home</a>
+          <a href="../#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="../#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="../#architecture" data-section-link="architecture">Architecture</a>
+          <a href="./" data-route="quick-start">Get Started</a>
+          <a href="../#contribute" data-section-link="contribute">Contribute</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell detail-hero">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Quick Start</p>
+          <h1>Prepare the workspace, inspect the inventory, then launch cleanly.</h1>
+          <p>
+            This page only uses commands that exist in Hearthlight today. It keeps the first-run
+            flow high level and pushes deeper setup detail back to the runtime documentation.
+          </p>
+        </div>
+
+        <div class="detail-nav reveal" aria-label="Library pages">
+          <a href="./" data-page="quick-start">Quick Start</a>
+          <a href="../model-library/" data-page="model-library">Model Library</a>
+          <a href="../trigger-library/" data-page="trigger-library">Trigger Library</a>
+          <a href="../connector-library/" data-page="connector-library">Connector Library</a>
+        </div>
+      </section>
+
+      <section class="section shell section-anchor" id="setup">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Workspace Flow</p>
+          <h2>Start with onboarding, not ad hoc setup.</h2>
+          <p>
+            The onboarding path prepares the local workspace, copies the example runtime config,
+            installs requirements, and writes notification defaults when those values are present.
+          </p>
+        </div>
+
+        <div class="command-grid">
+          <article class="command-card reveal">
+            <pre><code>pip install hearthlight
+hearthlight onboard</code></pre>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Step 1</span>
+            <h3>Run onboarding</h3>
+            <p>
+              Use `hearthlight onboard` for a clean local setup. The runtime docs also provide a
+              shell wrapper at `bash scripts/onboard.sh` if you want a repo-local path.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Step 2</span>
+            <h3>Inspect the inventory</h3>
+            <p>
+              Before launch, check which templates and model registrations are available in the
+              current workspace.
+            </p>
+            <div class="command-card">
+              <pre><code>hearthlight list-models</code></pre>
+            </div>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Step 3</span>
+            <h3>Launch the stack</h3>
+            <p>
+              The recommended first launch is the interactive path, which lets the CLI choose the
+              runtime template, source preset, and execution profile explicitly.
+            </p>
+            <div class="command-card">
+              <pre><code>hearthlight start --interactive</code></pre>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Step 4</span>
+            <h3>Check service state</h3>
+            <p>
+              Use the CLI to confirm whether the compose services are up before you hand control to
+              the dashboard.
+            </p>
+            <div class="command-card">
+              <pre><code>hearthlight status</code></pre>
+            </div>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Step 5</span>
+            <h3>Open the dashboard</h3>
+            <p>
+              Once the UI is available, open it with the dedicated CLI command and finish source,
+              binding, prompt, and alert-rule setup there.
+            </p>
+            <div class="command-card">
+              <pre><code>hearthlight dashboard</code></pre>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="callout reveal">
+          <p class="eyebrow">Important</p>
+          <h2>Use the real CLI surface.</h2>
+          <p>
+            This launch site intentionally avoids made-up marketing commands. The current CLI
+            exposes `start`, `stop`, `reset-db`, `status`, `onboard`, `list-models`, `dashboard`,
+            and `gui`.
+          </p>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Docs</p>
+          <h2>Go deeper when you need operational detail.</h2>
+          <p>
+            The runtime repo remains the source of truth for installation, architecture, container
+            startup, and security notes.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+          <article class="support-card reveal">
+            <h3>Initialization Guide</h3>
+            <p>Step-by-step onboarding, startup flow, dashboard setup, and common failure modes.</p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the guide
+            </a>
+          </article>
+          <article class="support-card reveal">
+            <h3>Containers Guide</h3>
+            <p>Container preflight, compose expectations, ports, and troubleshooting details.</p>
+            <a
+              href="https://github.com/lauretta-io/hearthlight/blob/main/docs/containers.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read the guide
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="../" aria-label="Hearthlight home">
+            <img src="../assets/hearthlight.png" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="./">Quick Start</a>
+            <a href="../model-library/">Model Library</a>
+            <a href="../trigger-library/">Trigger Library</a>
+            <a href="../connector-library/">Connector Library</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md" target="_blank" rel="noreferrer">Initialization Guide</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/architecture.md" target="_blank" rel="noreferrer">Architecture Notes</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/security.md" target="_blank" rel="noreferrer">Security Notes</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight Model Library</title>
+    <meta
+      name="description"
+      content="Understand the Hearthlight Model Library: built-in detectors, trackers, ReID and anomaly stages, mounted inventory, and per-source bindings."
+    />
+    <link rel="icon" type="image/png" href="../assets/hearthlight.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="model-library">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="../" aria-label="Hearthlight home">
+          <img src="../assets/hearthlight.png" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="../" data-route="home">Home</a>
+          <a href="../#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="../#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="../#architecture" data-section-link="architecture">Architecture</a>
+          <a href="../quick-start/" data-route="quick-start">Get Started</a>
+          <a href="../#contribute" data-section-link="contribute">Contribute</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell detail-hero">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Model Library</p>
+          <h1>Choose what the system can see, track, identify, and infer.</h1>
+          <p>
+            Hearthlight’s Model Zoo feeds the mounted inventory and the stage bindings used at
+            runtime. It exists so operators can change model selection without turning that choice
+            into brittle one-off config edits.
+          </p>
+        </div>
+
+        <div class="detail-nav reveal" aria-label="Library pages">
+          <a href="../quick-start/" data-page="quick-start">Quick Start</a>
+          <a href="./" data-page="model-library">Model Library</a>
+          <a href="../trigger-library/" data-page="trigger-library">Trigger Library</a>
+          <a href="../connector-library/" data-page="connector-library">Connector Library</a>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Stage Coverage</p>
+          <h2>The library spans the runtime stages, not just one detector list.</h2>
+          <p>
+            The current repository describes the Model Zoo as the source for detector, tracker,
+            heuristic filter, and anomaly detection options.
+          </p>
+        </div>
+
+        <div class="card-grid card-grid-four">
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Stage 1</span>
+            <h3>Detector</h3>
+            <p>
+              The detector model decides which raw classes are visible for each source and which
+              class metadata can feed alert-rule options.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Stage 2</span>
+            <h3>Tracker</h3>
+            <p>
+              Trackers maintain continuity between frames so the runtime can pass stable motion and
+              entity context downstream.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Stage 3</span>
+            <h3>Heuristic Filter</h3>
+            <p>
+              Filtering stages refine or gate runtime behavior before later steps consume those
+              signals.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Stage 4</span>
+            <h3>Anomaly Detection</h3>
+            <p>
+              Local and API-backed anomaly stages can surface higher-level activity and object
+              events after the earlier runtime stages finish their work.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="detail-grid">
+          <article class="callout reveal">
+            <p class="eyebrow">Selection Rules</p>
+            <h2>Bindings resolve per source.</h2>
+            <p>
+              Hearthlight resolves the effective runtime model set in a stable order: a
+              source-specific override wins first, then the saved default binding for that stage.
+            </p>
+          </article>
+          <article class="detail-card reveal">
+            <span class="detail-kicker">Inventory</span>
+            <h3>Built-in, mounted, and future plugin models</h3>
+            <p>
+              The current docs describe built-in models, third-party API-backed models such as
+              Chatgpt and Claude, and future external plugin models that can appear after restart.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Operator Experience</p>
+          <h2>The library exists for readable choices, not raw registry spelunking.</h2>
+          <p>
+            Hearthlight keeps stable internal keys for storage and automation while presenting
+            readable display names in the operator-facing surfaces.
+          </p>
+        </div>
+
+        <div class="detail-grid">
+          <article class="support-card reveal">
+            <h3>Inspect the current inventory</h3>
+            <p>Use the CLI to list templates and model options before startup.</p>
+            <div class="command-card">
+              <pre><code>hearthlight list-models</code></pre>
+            </div>
+          </article>
+          <article class="support-card reveal">
+            <h3>Mount models during onboarding</h3>
+            <p>
+              The onboarding flow can seed the mounted inventory with default models or specific
+              registry keys through repeated `--mount-model` flags.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="contribute-panel reveal">
+          <div>
+            <p class="eyebrow">Contribute</p>
+            <h2>Expand the model surface responsibly.</h2>
+            <p>
+              Contributions can target the runtime’s registry-backed model flow or the dedicated
+              model-zoo repository, depending on whether you are adding catalog coverage or model
+              assets.
+            </p>
+          </div>
+          <div class="repo-list">
+            <a
+              class="repo-card"
+              href="https://github.com/lauretta-io/hearthlight_model_zoo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Model Zoo Repository</strong>
+              <span>Browse the current model-zoo code and assets.</span>
+            </a>
+            <a
+              class="repo-card"
+              href="https://github.com/lauretta-io/hearthlight/blob/main/README.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Runtime README</strong>
+              <span>Read the current model selection and startup guidance.</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="../" aria-label="Hearthlight home">
+            <img src="../assets/hearthlight.png" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="../quick-start/">Quick Start</a>
+            <a href="./">Model Library</a>
+            <a href="../trigger-library/">Trigger Library</a>
+            <a href="../connector-library/">Connector Library</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight_model_zoo" target="_blank" rel="noreferrer">Model Zoo Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/repository.md" target="_blank" rel="noreferrer">Repository Guide</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/initialization.md" target="_blank" rel="noreferrer">Initialization Guide</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
+  </body>
+</html>
