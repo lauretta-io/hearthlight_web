@@ -399,6 +399,10 @@ h3 {
   margin-inline: auto;
 }
 
+.section-title-break span {
+  display: block;
+}
+
 .section-intro p {
   max-width: 48rem;
   margin: 0 auto;
@@ -419,6 +423,20 @@ h3 {
 .callout {
   padding: 1.5rem;
   background: var(--surface);
+}
+
+.zoo-card {
+  text-align: center;
+}
+
+.zoo-flow {
+  font-size: 1.03rem;
+  font-weight: 700;
+}
+
+.zoo-flow span {
+  color: var(--accent-deep);
+  font-weight: 800;
 }
 
 .link-arrow {
