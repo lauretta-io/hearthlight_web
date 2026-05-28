@@ -134,9 +134,13 @@ pre {
 }
 
 .brand img {
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 2.75rem;
+  height: 3.25rem;
+  padding: 0.18rem;
   border-radius: 0.9rem;
+  border: 1px solid rgba(59, 34, 20, 0.08);
+  background: rgba(255, 250, 245, 0.96);
+  object-fit: contain;
   box-shadow: var(--shadow-soft);
 }
 
@@ -189,12 +193,17 @@ pre {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-  gap: 2rem;
-  align-items: center;
+  display: block;
   min-height: calc(100vh - 6rem);
   padding-top: 2rem;
+}
+
+.hero-copy {
+  display: grid;
+  justify-items: center;
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .eyebrow {
@@ -302,6 +311,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+  justify-content: center;
   list-style: none;
 }
 
@@ -315,7 +325,6 @@ h3 {
   font-weight: 700;
 }
 
-.spotlight-panel,
 .feature-card,
 .zoo-card,
 .terminal-card,
@@ -329,21 +338,6 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
-.spotlight-panel {
-  padding: 1.4rem;
-  background: linear-gradient(180deg, rgba(255, 248, 240, 0.94), rgba(248, 236, 216, 0.88));
-}
-
-.panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.panel-tag,
-.live-chip,
 .metric-label,
 .feature-kicker,
 .badge-number,
@@ -356,19 +350,6 @@ h3 {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.panel-tag {
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(59, 34, 20, 0.08);
-}
-
-.live-chip {
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  color: #f9fdfb;
-  background: linear-gradient(135deg, var(--success) 0%, #116555 100%);
 }
 
 .metric-grid,
@@ -409,15 +390,18 @@ h3 {
   display: grid;
   gap: 0.7rem;
   margin-bottom: 2rem;
+  justify-items: center;
+  text-align: center;
 }
 
 .section-intro h2 {
   max-width: 11ch;
+  margin-inline: auto;
 }
 
 .section-intro p {
   max-width: 48rem;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .card-grid-three {
@@ -536,6 +520,10 @@ h3 {
   align-items: center;
 }
 
+.preview-copy {
+  text-align: center;
+}
+
 .terminal-card {
   overflow: hidden;
   background: #2e1c14;
@@ -576,17 +564,21 @@ h3 {
 
 .contribute-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   padding: 1.8rem;
   border: 1px solid rgba(59, 34, 20, 0.08);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(255, 249, 242, 0.88), rgba(247, 237, 223, 0.88));
   box-shadow: var(--shadow-soft);
+  text-align: center;
 }
 
 .repo-list {
   grid-template-columns: 1fr;
+  max-width: 52rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .repo-card {
@@ -618,8 +610,8 @@ h3 {
 }
 
 .brand-footer img {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.3rem;
+  height: 2.75rem;
 }
 
 .footer-copy {
@@ -723,6 +715,7 @@ h3 {
   flex-wrap: wrap;
   gap: 0.7rem;
   margin-top: 0.2rem;
+  justify-content: center;
 }
 
 .detail-nav a {
@@ -764,7 +757,6 @@ h3 {
 }
 
 @media (max-width: 1080px) {
-  .hero,
   .contribute-panel,
   .quickstart-preview,
   .split-panels,
@@ -856,7 +848,6 @@ h3 {
     display: grid;
   }
 
-  .spotlight-panel,
   .feature-card,
   .zoo-card,
   .detail-card,

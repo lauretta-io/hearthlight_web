@@ -1,0 +1,21 @@
+<svg width="233" height="270" viewBox="0 0 233 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Hearthlight logo</title>
+  <desc>A line-art house containing an orange flame above three hearth stones.</desc>
+
+  <!-- House outline -->
+  <path d="M13 203V139C13 128 17 119 25 112L101 38C111 28 122 28 132 38L181 85V45C181 40 184 37 189 37H204C209 37 212 40 212 45V116L221 124C228 131 231 139 231 149V203"
+        stroke="#242424" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Outer flame -->
+  <path d="M114 230C91 224 66 205 63 174C60 145 81 126 96 105C106 91 111 77 112 74C114 78 121 96 134 112C150 132 163 148 162 173C161 204 139 224 114 230Z"
+        stroke="#E4752D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Inner flame -->
+  <path d="M114 229C100 221 91 207 94 191C97 174 108 161 114 149C120 162 135 174 138 191C141 209 130 222 114 229Z"
+        stroke="#E4752D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Hearth stones -->
+  <ellipse cx="49" cy="238" rx="26" ry="12" transform="rotate(8 49 238)" fill="#242424"/>
+  <ellipse cx="116" cy="244" rx="34" ry="13" fill="#242424"/>
+  <ellipse cx="184" cy="238" rx="26" ry="12" transform="rotate(-8 184 238)" fill="#242424"/>
+</svg>
