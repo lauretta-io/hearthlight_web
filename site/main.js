@@ -44,6 +44,7 @@ const routeMap = {
   "model-library": "zoos",
   "trigger-library": "zoos",
   "connector-library": "zoos",
+  changelog: "changelog",
 };
 
 document.querySelectorAll(".primary-nav a").forEach((link) => {

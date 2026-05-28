@@ -9,6 +9,7 @@ Static GitHub Pages launch site for Hearthlight.
 - `site/model-library/index.html`: Model Library page
 - `site/trigger-library/index.html`: Trigger Library page
 - `site/connector-library/index.html`: Connector Library page
+- `site/changelog/index.html`: changelog page
 - `site/styles.css`: shared styling
 - `site/main.js`: shared interaction logic
 

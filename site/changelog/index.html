@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearthlight Changelog</title>
+    <meta
+      name="description"
+      content="Track Hearthlight release notes, including the current 0.8.0 release and the 0.8.1 main-branch preview."
+    />
+    <link rel="icon" type="image/svg+xml" href="../assets/hearthlight.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../main.js" defer></script>
+  </head>
+  <body data-page="changelog">
+    <div class="backdrop-orb orb-left"></div>
+    <div class="backdrop-orb orb-right"></div>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="../" aria-label="Hearthlight home">
+          <img src="../assets/hearthlight.svg" alt="Hearthlight logo" />
+          <span>Hearthlight</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <a href="../" data-route="home">Home</a>
+          <a href="../#capabilities" data-section-link="capabilities">Capabilities</a>
+          <a href="../#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
+          <a href="../#architecture" data-section-link="architecture">Architecture</a>
+          <a href="../quick-start/" data-route="quick-start">Get Started</a>
+          <a href="../#contribute" data-section-link="contribute">Contribute</a>
+          <a href="./" data-route="changelog">Changelog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section shell detail-hero">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Changelog</p>
+          <h1>Track what changed in Hearthlight.</h1>
+          <p>
+            This page mirrors the official `0.8.0` release notes from the Hearthlight main branch
+            and adds a clearly labeled `0.8.1` preview based on the current unreleased work on
+            `main`.
+          </p>
+        </div>
+
+        <div class="detail-nav reveal" aria-label="Site pages">
+          <a href="../quick-start/" data-page="quick-start">Quick Start</a>
+          <a href="../model-library/" data-page="model-library">Model Library</a>
+          <a href="../trigger-library/" data-page="trigger-library">Trigger Library</a>
+          <a href="../connector-library/" data-page="connector-library">Connector Library</a>
+          <a href="./" data-page="changelog">Changelog</a>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="release-grid">
+          <article class="release-card reveal">
+            <p class="eyebrow">Main Branch Preview</p>
+            <h2>0.8.1</h2>
+            <div class="release-meta">
+              <span class="release-chip">Status: Preview from `main`</span>
+              <span class="release-chip">Version metadata not bumped yet</span>
+            </div>
+            <p>
+              The hosted `main` branch does not contain an official `0.8.1` changelog entry yet.
+              The items below are derived from the current `main` branch commits and runtime files.
+            </p>
+            <ul class="release-list">
+              <li>added a repo-backed Connector Zoo catalog path with local fallback behavior for connector discovery</li>
+              <li>expanded and clarified the Three Zoos documentation across the main runtime repository</li>
+              <li>continued hardening local CPU runtime behavior, status heartbeats, and anomaly gating on the main branch</li>
+              <li>kept the Connector Zoo positioned around optional integrations such as Govee Light Connection instead of forcing them into the core default set</li>
+            </ul>
+          </article>
+
+          <article class="release-card reveal">
+            <p class="eyebrow">Official Release</p>
+            <h2>0.8.0</h2>
+            <div class="release-meta">
+              <span class="release-chip">Released: 2026-05-15</span>
+              <span class="release-chip">Source: `CHANGELOG.md` on `main`</span>
+            </div>
+            <ul class="release-list">
+              <li>bumped the project version to `0.8.0` across the Python package, frontend package metadata, macOS bundle metadata, and FastAPI OpenAPI metadata</li>
+              <li>added published-image support for the compose and CLI stack via `HEARTHLIGHT_*_IMAGE` environment variables and a Docker publish helper script</li>
+              <li>widened the default YOLOX detector surface to COCO-trained classes and added extra YOLOX size options in the model zoo</li>
+              <li>migrated the frontend from `react-scripts` to Vite and rebuilt the frontend package lockfile</li>
+              <li>simplified source configuration defaults for blank camera labels, webcam labels, and uploaded video names</li>
+              <li>hid source-level detector, tracker, and anomaly override selectors whenever `Enable Video AI` is turned off while preserving saved disabled state</li>
+              <li>renamed the source save action to `Update Source Settings` and added a visible loading spinner while source settings save</li>
+              <li>expanded local anomaly registry compatibility so `siglip_stage_1_*` and `smolvlm_stage_2_*` defaults resolve even when the external model-zoo catalog is unavailable</li>
+              <li>simplified the Connectors page into a single-column connector list with configured-state badges</li>
+              <li>added per-camera frame skipping with `Process every Nth frame`</li>
+              <li>moved anomaly `1-10` trigger cutoffs out of Stage 2 prompt config and into anomaly detection rules</li>
+              <li>split Rules into separate detection and anomaly sections with multi-camera targeting</li>
+              <li>added processing-rate guidance in the model library and recent measured cadence in Model Logs</li>
+              <li>added third-party Stage 2 anomaly model entries for Chatgpt, Claude, and Lauretta-hosted OpenAI-compatible APIs, with environment-based availability checks and provider model-name overrides</li>
+              <li>moved theme selection into `Settings > Appearance` and persisted it as a workspace-wide backend setting with cached startup restore</li>
+              <li>unified models, triggers, connectors, and rule-set templates under a restart-loaded plugin manifest system backed by persisted plugin bundle and component catalogs</li>
+              <li>added `Govee Light Connection` as a non-core connector plugin that can be pulled from the Connector Zoo without becoming part of the default built-in connector set</li>
+              <li>added Govee connector setup helpers for API-key validation, light-device discovery, optional state inspection, and trigger-driven light control</li>
+              <li>removed stale frontend pages and assets from the retired Control, Entity, and POI flows</li>
+              <li>cleaned up duplicate backup files such as `README (1).md` and `.gitignore (1)`</li>
+              <li>documented the validated detector class surface and clarified that live detector trigger IDs remain normalized to `PERSON` and `BAG`</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="callout reveal">
+          <p class="eyebrow">Source of Truth</p>
+          <h2>Release metadata still lives in the runtime repo.</h2>
+          <p>
+            The official release file is still the main Hearthlight repository changelog. This
+            website page is a readable release surface, not the canonical source for package
+            version metadata.
+          </p>
+          <div class="cta-row">
+            <a
+              class="button button-secondary"
+              href="https://github.com/lauretta-io/hearthlight/blob/main/CHANGELOG.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Runtime Changelog
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-shell">
+        <div>
+          <a class="brand brand-footer" href="../" aria-label="Hearthlight home">
+            <img src="../assets/hearthlight.svg" alt="" />
+            <span>Hearthlight</span>
+          </a>
+          <p class="footer-copy">
+            Local-first computer vision automation for structured incidents, alerts, and operator
+            workflows.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h3>Explore</h3>
+            <a href="../quick-start/">Quick Start</a>
+            <a href="../model-library/">Model Library</a>
+            <a href="../trigger-library/">Trigger Library</a>
+            <a href="../connector-library/">Connector Library</a>
+            <a href="./">Changelog</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://github.com/lauretta-io/hearthlight" target="_blank" rel="noreferrer">Runtime Repo</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Runtime Changelog</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+            <a href="https://github.com/lauretta-io/hearthlight/blob/main/docs/repository.md" target="_blank" rel="noreferrer">Repository Guide</a>
+          </div>
+        </div>
+      </div>
+      <div class="shell footer-meta">
+        <p>&copy; <span data-year></span> Hearthlight</p>
+      </div>
+    </footer>
+  </body>
+</html>

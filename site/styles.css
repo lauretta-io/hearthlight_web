@@ -693,10 +693,15 @@ h3 {
 }
 
 .command-grid,
-.resource-grid {
+.resource-grid,
+.release-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
+}
+
+.release-grid {
+  grid-template-columns: 1fr;
 }
 
 .command-card {
@@ -722,6 +727,71 @@ h3 {
 .resource-links a {
   color: var(--accent-deep);
   font-weight: 800;
+}
+
+.release-card {
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.release-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.8rem 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.release-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 245, 0.8);
+}
+
+.release-card > p {
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.72;
+}
+
+.release-list {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.release-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+.release-list li + li {
+  margin-top: 0.8rem;
+}
+
+.release-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72rem;
+  left: 0;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .callout {
