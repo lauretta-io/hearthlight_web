@@ -434,25 +434,24 @@ h3 {
 }
 
 .video-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.25rem;
-  align-items: center;
-  padding: 1.6rem;
+  padding: 1rem;
 }
 
-.video-card-copy {
-  text-align: center;
+.video-embed-shell {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 8px);
+  background: #2e1c14;
 }
 
-.video-card-copy h3 {
-  margin-bottom: 0.75rem;
-}
-
-.video-card-copy p {
-  margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.72;
+.video-embed-shell iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .faq-list {
@@ -460,6 +459,10 @@ h3 {
   gap: 1rem;
   max-width: 56rem;
   margin: 0 auto;
+}
+
+.faq-list + * {
+  margin-top: 0;
 }
 
 .faq-item {
