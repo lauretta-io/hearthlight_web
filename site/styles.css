@@ -425,6 +425,81 @@ h3 {
   background: var(--surface);
 }
 
+.video-card,
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+.video-card-copy {
+  text-align: center;
+}
+
+.video-card-copy h3 {
+  margin-bottom: 0.75rem;
+}
+
+.video-card-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.3rem;
+  font-family: "Fraunces", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  color: var(--accent-deep);
+  font-family: "Manrope", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 1.3rem 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
 .zoo-card {
   text-align: center;
 }
@@ -847,6 +922,7 @@ h3 {
 @media (max-width: 1080px) {
   .contribute-panel,
   .quickstart-preview,
+  .video-card,
   .split-panels,
   .detail-grid,
   .command-grid,
