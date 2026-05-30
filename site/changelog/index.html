@@ -81,16 +81,17 @@
             <div class="release-meta">
               <span class="release-chip">Status: Preview from `main`</span>
               <span class="release-chip">Version metadata not bumped yet</span>
+              <span class="release-chip">Derived from `main` commits on 2026-05-20 to 2026-05-28</span>
             </div>
             <p>
               The hosted `main` branch does not contain an official `0.8.1` changelog entry yet.
               The items below are derived from the current `main` branch commits and runtime files.
             </p>
             <ul class="release-list">
-              <li>added a repo-backed Connector Zoo catalog path with local fallback behavior for connector discovery</li>
-              <li>expanded and clarified the Three Zoos documentation across the main runtime repository</li>
-              <li>continued hardening local CPU runtime behavior, status heartbeats, and anomaly gating on the main branch</li>
-              <li>kept the Connector Zoo positioned around optional integrations such as Govee Light Connection instead of forcing them into the core default set</li>
+              <li>added a repo-backed Connector Zoo catalog path with local fallback behavior for connector discovery and install flows</li>
+              <li>expanded and clarified the Three Zoos documentation on `main`, including the operator-facing split between models, triggers, and connectors</li>
+              <li>hardened dependency and deployment defaults on the main branch</li>
+              <li>fixed local CPU ingest stalls, status heartbeats, and anomaly gating behavior during runtime recovery</li>
             </ul>
           </article>
 
