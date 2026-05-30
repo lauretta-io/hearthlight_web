@@ -454,6 +454,18 @@ h3 {
   border: 0;
 }
 
+.video-fallback {
+  margin: 0.95rem 0 0;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.65;
+}
+
+.video-fallback a {
+  color: var(--accent-deep);
+  font-weight: 800;
+}
+
 .faq-list {
   display: grid;
   gap: 1rem;
