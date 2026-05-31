@@ -42,10 +42,9 @@
 
         <nav id="primary-nav" class="primary-nav" aria-label="Primary">
           <a href="./" data-route="home">Home</a>
+          <a href="./quick-start/" data-route="quick-start">Get Started</a>
           <a href="./#capabilities" data-section-link="capabilities">Capabilities</a>
           <a href="./#zoos" data-route="zoos" data-section-link="zoos">Three Zoos</a>
-          <a href="./#architecture" data-section-link="architecture">Architecture</a>
-          <a href="./quick-start/" data-route="quick-start">Get Started</a>
           <a href="./#contribute" data-section-link="contribute">Contribute</a>
           <a href="./updates/" data-route="changelog">Changelog</a>
         </nav>
@@ -64,7 +63,22 @@
 
           <div class="hero-actions">
             <a class="button button-primary" href="./quick-start/">Get Started</a>
-            <a class="button button-secondary" href="./#architecture">View Architecture</a>
+            <a
+              class="button button-secondary"
+              href="https://www.producthunt.com/posts/hearthlight/maker-invite?code=QMxEzM"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Product Hunt
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://discord.gg/a4DT6HSfN"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Discord
+            </a>
           </div>
 
           <ul class="pill-list" aria-label="Product signals">
@@ -240,57 +254,6 @@
         </div>
       </section>
 
-      <section id="architecture" class="section section-dark">
-        <div class="shell">
-          <div class="section-intro reveal">
-            <p class="eyebrow">Architecture</p>
-            <h2>A modular pipeline with a simple control plane.</h2>
-            <p>
-              The runtime stays split into focused services while the web app handles operator
-              state, launch planning, and run visibility.
-            </p>
-          </div>
-
-          <div class="pipeline-grid reveal">
-            <article class="pipeline-card">
-              <span>1</span>
-              <h3>Ingestor</h3>
-              <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
-            </article>
-            <article class="pipeline-card">
-              <span>2</span>
-              <h3>Anomaly</h3>
-              <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
-            </article>
-            <article class="pipeline-card">
-              <span>3</span>
-              <h3>Association</h3>
-              <p>Infers ownership, generates incidents, and keeps resolution state coherent.</p>
-            </article>
-          </div>
-
-          <div class="split-panels">
-            <article class="dark-panel reveal">
-              <h3>Control-plane technologies</h3>
-              <ul class="stack-list">
-                <li>FastAPI API surface for run control and operations data</li>
-                <li>React dashboard for source setup, bindings, prompts, and rules</li>
-                <li>RabbitMQ for long-running service coordination</li>
-                <li>Postgres for runtime and control schemas</li>
-              </ul>
-            </article>
-            <article class="dark-panel reveal">
-              <h3>Why it is split this way</h3>
-              <p>
-                Startup choices such as CPU vs CUDA and template selection stay on the host-side
-                launcher, while operator-managed state lives in the control plane and survives
-                restarts.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="section shell">
         <div class="section-intro reveal">
           <p class="eyebrow">Get Started</p>
@@ -356,27 +319,56 @@ hearthlight dashboard</code></pre>
               <span>github.com/lauretta-io/hearthlight_model_zoo</span>
             </a>
           </div>
-          <div class="community-grid" aria-label="Community and launch links">
-            <a
-              class="community-card"
-              href="https://www.producthunt.com/posts/hearthlight/maker-invite?code=QMxEzM"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span class="community-eyebrow">Product Hunt</span>
-              <strong>Support Hearthlight on Product Hunt</strong>
-              <span>Open the Product Hunt maker invite and see the launch page.</span>
-            </a>
-            <a
-              class="community-card"
-              href="https://discord.gg/a4DT6HSfN"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span class="community-eyebrow">Discord</span>
-              <strong>Join the Hearthlight Discord</strong>
-              <span>Talk with the team, follow progress, and share questions or feedback.</span>
-            </a>
+        </div>
+      </section>
+
+      <section id="architecture" class="section section-dark">
+        <div class="shell">
+          <div class="section-intro reveal">
+            <p class="eyebrow">Architecture</p>
+            <h2>A modular pipeline with a simple control plane.</h2>
+            <p>
+              The runtime stays split into focused services while the web app handles operator
+              state, launch planning, and run visibility.
+            </p>
+          </div>
+
+          <div class="pipeline-grid reveal">
+            <article class="pipeline-card">
+              <span>1</span>
+              <h3>Ingestor</h3>
+              <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
+            </article>
+            <article class="pipeline-card">
+              <span>2</span>
+              <h3>Anomaly</h3>
+              <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
+            </article>
+            <article class="pipeline-card">
+              <span>3</span>
+              <h3>Association</h3>
+              <p>Infers ownership, generates incidents, and keeps resolution state coherent.</p>
+            </article>
+          </div>
+
+          <div class="split-panels">
+            <article class="dark-panel reveal">
+              <h3>Control-plane technologies</h3>
+              <ul class="stack-list">
+                <li>FastAPI API surface for run control and operations data</li>
+                <li>React dashboard for source setup, bindings, prompts, and rules</li>
+                <li>RabbitMQ for long-running service coordination</li>
+                <li>Postgres for runtime and control schemas</li>
+              </ul>
+            </article>
+            <article class="dark-panel reveal">
+              <h3>Why it is split this way</h3>
+              <p>
+                Startup choices such as CPU vs CUDA and template selection stay on the host-side
+                launcher, while operator-managed state lives in the control plane and survives
+                restarts.
+              </p>
+            </article>
           </div>
         </div>
       </section>
