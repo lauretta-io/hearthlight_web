@@ -47,7 +47,7 @@
           <a href="./#architecture" data-section-link="architecture">Architecture</a>
           <a href="./quick-start/" data-route="quick-start">Get Started</a>
           <a href="./#contribute" data-section-link="contribute">Contribute</a>
-          <a href="./changelog/" data-route="changelog">Changelog</a>
+          <a href="./updates/" data-route="changelog">Changelog</a>
         </nav>
       </div>
     </header>
@@ -101,6 +101,15 @@
 
         <div class="faq-list reveal">
           <details class="faq-item">
+            <summary>Who are we?</summary>
+            <p>We're Lauretta.io, builders of AI for understanding the physical world.</p>
+            <p>
+              We were founded on the belief that effective security doesn't require pervasive
+              biometric surveillance. That's why we focus on context and behavior before identity.
+            </p>
+            <p>Also, we like the Jetsons, but we can't afford an Optimus.</p>
+          </details>
+          <details class="faq-item">
             <summary>What does Hearthlight actually do?</summary>
             <p>
               Hearthlight turns camera feeds and local AI models into structured detections,
@@ -119,6 +128,13 @@
             <p>
               Models decide what the runtime can see, triggers decide when something matters, and
               connectors decide where the resulting alerts or actions go.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I connect this to OpenAI / Anthropic?</summary>
+            <p>
+              You can connect it to the API, but not the OAuth right now. If you do, be careful:
+              it can get really expensive.
             </p>
           </details>
           <details class="faq-item">
@@ -235,16 +251,11 @@
             </article>
             <article class="pipeline-card">
               <span>2</span>
-              <h3>ReID</h3>
-              <p>Turns camera-local tracks into persistent identities for people and bags.</p>
-            </article>
-            <article class="pipeline-card">
-              <span>3</span>
               <h3>Anomaly</h3>
               <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
             </article>
             <article class="pipeline-card">
-              <span>4</span>
+              <span>3</span>
               <h3>Association</h3>
               <p>Infers ownership, generates incidents, and keeps resolution state coherent.</p>
             </article>
@@ -370,7 +381,7 @@ hearthlight dashboard</code></pre>
             <a href="./model-library/">Model Library</a>
             <a href="./trigger-library/">Trigger Library</a>
             <a href="./connector-library/">Connector Library</a>
-            <a href="./changelog/">Changelog</a>
+            <a href="./updates/">Changelog</a>
           </div>
           <div>
             <h3>Resources</h3>
