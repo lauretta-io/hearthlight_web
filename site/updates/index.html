@@ -13,7 +13,7 @@
     <title>Hearthlight Changelog</title>
     <meta
       name="description"
-      content="Track Hearthlight release notes, including the current 0.8.0 release and the 0.8.1 main-branch preview."
+      content="Track Hearthlight release notes for the current 0.8.x release line."
     />
     <link rel="icon" type="image/svg+xml" href="../assets/hearthlight.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,21 +81,35 @@
       <section class="section shell">
         <div class="release-grid">
           <article class="release-card reveal">
-            <p class="eyebrow">Main Branch Preview</p>
+            <p class="eyebrow">Official Release</p>
+            <h2>0.8.2</h2>
+            <div class="release-meta">
+              <span class="release-chip">Version: 0.8.2</span>
+              <span class="release-chip">Updated: 2026-05-31</span>
+            </div>
+            <ul class="release-list">
+              <li>added system-aware Docker image-lane preparation through `hearthlight prepare-images`, with explicit `cpu`, `cuda`, and `mlx` variants</li>
+              <li>updated the compose stack and Docker publish flow to use variant-tagged local and published images such as `hearthlight-webapp:mlx` and `<tag>-cuda`</li>
+              <li>introduced `hybrid-local-mlx` as the Apple Silicon host-worker runtime and documented MLX as a hybrid control-plane plus host-worker deployment path</li>
+              <li>fixed Apple Silicon detection for translated macOS Python environments so MLX-capable hosts no longer fall back incorrectly to the CPU worker lane</li>
+              <li>aligned release metadata, plugin manifests, connector-zoo catalog metadata, and frontend package metadata to `0.8.2`</li>
+            </ul>
+          </article>
+
+          <article class="release-card reveal">
+            <p class="eyebrow">Official Release</p>
             <h2>0.8.1</h2>
             <div class="release-meta">
               <span class="release-chip">Version: 0.8.1</span>
-              <span class="release-chip">Updated: 2026-05-28</span>
+              <span class="release-chip">Updated: 2026-05-31</span>
             </div>
-            <p>
-              The hosted `main` branch does not contain an official `0.8.1` changelog entry yet.
-              The items below are derived from the current `main` branch commits and runtime files.
-            </p>
             <ul class="release-list">
-              <li>added a repo-backed Connector Zoo catalog path with local fallback behavior for connector discovery and install flows</li>
-              <li>expanded and clarified the Three Zoos documentation on `main`, including the operator-facing split between models, triggers, and connectors</li>
-              <li>hardened dependency and deployment defaults on the main branch</li>
-              <li>fixed local CPU ingest stalls, status heartbeats, and anomaly gating behavior during runtime recovery</li>
+              <li>finalized the operator workflow refresh across Monitoring, Rules, Incidents, and Model Logs, including compact rule editors, read-only saved rules with explicit edit mode, richer trigger detail media, and a more stable always-warm UI refresh model</li>
+              <li>expanded connector and trigger delivery behavior so rules can target saved connector endpoints directly, trigger detail pages can show connector delivery outcomes, and the Connector Zoo defaults to the GitHub-backed catalog path</li>
+              <li>hardened anomaly and detector alert handling so detector and anomaly incidents produce clearer titles, model logs persist non-alerting model returns, and alert persistence/filtering works correctly across restarts</li>
+              <li>improved local-runtime operation with hybrid-local-cpu startup fixes, direct local worker health integration, smoother live preview behavior, and source-processing controls that better separate uploaded video from webcam and CCTV handling</li>
+              <li>tightened runtime robustness with bounded queue helpers, file-retention controls, shared frontend polling and SSE coordination, server-side cached operations events, and soak-test harnesses for long-run resource validation</li>
+              <li>repaired several container/runtime packaging issues, including RabbitMQ init behavior, Docker dependency conflicts, and the removal of `reid` from the active Docker stack definition</li>
             </ul>
           </article>
 
