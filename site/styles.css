@@ -30,7 +30,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: "Manrope", sans-serif;
+  font-family: "Geist", sans-serif;
   color: var(--text-primary);
   background:
     radial-gradient(circle at top left, rgba(228, 87, 46, 0.12), transparent 28%),
@@ -130,7 +130,7 @@ pre {
   align-items: center;
   gap: 0.9rem;
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 .brand img {
@@ -211,7 +211,7 @@ pre {
   color: var(--accent-deep);
   font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -219,10 +219,10 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-family: "Fraunces", serif;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
+  font-family: "Geist", sans-serif;
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1.02;
 }
 
 h1 {
@@ -392,7 +392,7 @@ h3 {
   width: fit-content;
   font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -534,7 +534,7 @@ h3 {
   cursor: pointer;
   list-style: none;
   padding: 1.1rem 1.3rem;
-  font-family: "Fraunces", serif;
+  font-family: "Geist", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -547,7 +547,7 @@ h3 {
   content: "+";
   float: right;
   color: var(--accent-deep);
-  font-family: "Manrope", sans-serif;
+  font-family: "Geist", sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
 }
