@@ -2,6 +2,52 @@ const body = document.body;
 const navToggle = document.querySelector(".nav-toggle");
 const primaryNav = document.querySelector(".primary-nav");
 const revealItems = document.querySelectorAll(".reveal");
+const analyticsRoute = body.dataset.page || "home";
+
+const pushAnalyticsEvent = (eventName, payload = {}) => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName,
+    page: analyticsRoute,
+    path: window.location.pathname,
+    ...payload,
+  });
+};
+
+const getLinkCategory = (link) => {
+  const href = link.getAttribute("href") || "";
+  const url = new URL(href, window.location.href);
+
+  if (url.hostname.includes("producthunt.com")) {
+    return "product_hunt";
+  }
+  if (url.hostname.includes("discord.gg")) {
+    return "discord";
+  }
+  if (url.hostname.includes("youtube.com") || url.hostname.includes("youtube-nocookie.com")) {
+    return "youtube";
+  }
+  if (url.hostname.includes("github.com")) {
+    return "github";
+  }
+  if (link.classList.contains("button")) {
+    return "cta";
+  }
+  if (link.closest(".primary-nav")) {
+    return "primary_nav";
+  }
+  if (link.closest(".detail-nav")) {
+    return "detail_nav";
+  }
+  if (url.origin !== window.location.origin) {
+    return "outbound";
+  }
+  return "internal";
+};
+
+pushAnalyticsEvent("hearthlight_page_view", {
+  title: document.title,
+});
 
 if (navToggle && primaryNav) {
   navToggle.addEventListener("click", () => {
@@ -17,6 +63,35 @@ if (navToggle && primaryNav) {
     });
   });
 }
+
+document.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element)) {
+    return;
+  }
+
+  const link = event.target.closest("a");
+  if (!link) {
+    return;
+  }
+
+  pushAnalyticsEvent("hearthlight_link_click", {
+    category: getLinkCategory(link),
+    label: link.textContent.trim() || link.getAttribute("aria-label") || link.querySelector("img")?.alt || "image_link",
+    href: link.href,
+  });
+});
+
+document.querySelectorAll("details.faq-item").forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) {
+      return;
+    }
+
+    pushAnalyticsEvent("hearthlight_faq_open", {
+      question: item.querySelector("summary")?.textContent.trim() || "",
+    });
+  });
+});
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
