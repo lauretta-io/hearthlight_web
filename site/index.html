@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./main.js" defer></script>
   </head>
@@ -198,6 +199,7 @@
 
         <div class="card-grid card-grid-four">
           <article class="feature-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-ai-video"></i></span>
             <span class="feature-kicker">01</span>
             <h3>Any video source</h3>
             <p>
@@ -206,6 +208,7 @@
             </p>
           </article>
           <article class="feature-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-source-code"></i></span>
             <span class="feature-kicker">02</span>
             <h3>Scalable yaml</h3>
             <p>
@@ -214,6 +217,7 @@
             </p>
           </article>
           <article class="feature-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-zap"></i></span>
             <span class="feature-kicker">03</span>
             <h3>Outputs trigger anything</h3>
             <p>
@@ -222,6 +226,7 @@
             </p>
           </article>
           <article class="feature-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-workflow-square-01"></i></span>
             <span class="feature-kicker">04</span>
             <h3>Extensible plugin framework</h3>
             <p>
@@ -247,6 +252,7 @@
 
         <div class="card-grid card-grid-three">
           <article class="zoo-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-ai-brain-01"></i></span>
             <span class="badge-number">01</span>
             <h3>Model Zoo</h3>
             <p class="zoo-flow">
@@ -255,6 +261,7 @@
             <a class="link-arrow" href="./model-library/">Explore the Model Zoo</a>
           </article>
           <article class="zoo-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-zap"></i></span>
             <span class="badge-number">02</span>
             <h3>Trigger Zoo</h3>
             <p class="zoo-flow">
@@ -264,6 +271,7 @@
             <a class="link-arrow" href="./trigger-library/">Explore the Trigger Zoo</a>
           </article>
           <article class="zoo-card reveal">
+            <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-api"></i></span>
             <span class="badge-number">03</span>
             <h3>Connector Zoo</h3>
             <p class="zoo-flow">
@@ -327,6 +335,7 @@ hearthlight dashboard</code></pre>
               target="_blank"
               rel="noreferrer"
             >
+              <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-github"></i></span>
               <strong>Hearthlight Runtime</strong>
               <span>github.com/lauretta-io/hearthlight</span>
             </a>
@@ -336,6 +345,7 @@ hearthlight dashboard</code></pre>
               target="_blank"
               rel="noreferrer"
             >
+              <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-ai-brain-01"></i></span>
               <strong>Hearthlight Model Zoo</strong>
               <span>github.com/lauretta-io/hearthlight_model_zoo</span>
             </a>
@@ -356,17 +366,26 @@ hearthlight dashboard</code></pre>
 
           <div class="pipeline-grid reveal">
             <article class="pipeline-card">
-              <span>1</span>
+              <div class="pipeline-card-header">
+                <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-video-01"></i></span>
+                <span>1</span>
+              </div>
               <h3>Ingestor</h3>
               <p>Opens feeds, runs detection and tracking, and pushes structured frame bundles.</p>
             </article>
             <article class="pipeline-card">
-              <span>2</span>
+              <div class="pipeline-card-header">
+                <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-analytics-01"></i></span>
+                <span>2</span>
+              </div>
               <h3>Anomaly</h3>
               <p>Applies pluggable anomaly adapters and emits normalized event records.</p>
             </article>
             <article class="pipeline-card">
-              <span>3</span>
+              <div class="pipeline-card-header">
+                <span class="icon-badge" aria-hidden="true"><i class="hgi-stroke hgi-workflow-square-01"></i></span>
+                <span>3</span>
+              </div>
               <h3>Association</h3>
               <p>Infers ownership, generates incidents, and keeps resolution state coherent.</p>
             </article>
